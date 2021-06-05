@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To Do List</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://kit.fontawesome.com/007b767ad0.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<h1>iDo List</h1>
+<div class="inp">
+<input id="inputField" type="text" placeholder="I want to do..."><button id="addToDo"><i class="fas fa-plus"></i></button>
+</div>
+<div class="to-dos" id="toDoContainer">
+
+</div>
+
+<script>
+
+    // 1. Alias the three elements added 
+    let addToDoButton = document.getElementById('addToDo');
+    let toDoContainer = document.getElementById('toDoContainer');
+    let inputField = document.getElementById('inputField');
+
+    // when "button" -> "clicked" -> start a "function"
+    addToDoButton.addEventListener('click', function(){
+
+        // make variable that create a paragraph element <p></p>
+        var paragraph = document.createElement('p');
+        
+        // add a class to the created paragraph <p class="p-style"></p>
+        paragraph.classList.add('p-style');
+
+        // add text to the paragraph , the text comes from input value <p class="p-style">input value text</p>
+        paragraph.innerText = inputField.value;
+
+        /* the paragraph is ready to be appended to container :-
+
+        <div class="toDoContainer">
+            <p class="p-style">input value text</p>
+        </div>
+        
+        */
+        toDoContainer.appendChild(paragraph);
+
+        // default input field value is ''
+        inputField.value = '';
+
+        // on single click the paragraph add style "text-decoration:line-through"
+        paragraph.addEventListener('click', function() {
+            paragraph.style.textDecoration = 'line-through';
+        })
+
+        // on double click the paragraph fire container removechild paragraph
+        paragraph.addEventListener('dblclick', function() {
+            toDoContainer.removeChild(paragraph);
+        })
+    })
+</script>
+</body>
+</html>

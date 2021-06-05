@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To Do List</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://kit.fontawesome.com/007b767ad0.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<h1>Vanilla Todo list</h1>
+
+    <input type="text" id="todo-input"><button id="todo-submit"> + </button>
+
+    <ul class="todo-container">
+    <!--Result Will show Here-->
+    </ul>
+</div>
+
+<script>
+
+    // Alias the three elements added 
+    let todo_input = document.getElementById('todo-input');
+    let todo_submit = document.getElementById('todo-submit');
+    let todo_container = document.getElementById('todo-container');
+    
+    // when "button" -> "clicked" -> start a "function"
+    todo_submit.addEventListener('click', function(){ /*ADD EVERYTHING HERE*/ 
+    
+    
+// make variable that create a todo list item element *`<li></li>`*
+
+     var todo_item = document.createElement('li');
+
+        
+    // add class to the created todo item *`<li class="todo-item"></li>`*
+
+    todo_item.classList.add('todo-item');
+
+     
+    // add text to the todo item , the text comes from input value *`<li class="todo-item">input value text</li>`*
+    todo_item.innertext=todo_input.value
+    
+    // default input field value is empty ""
+    todo_input.value = "";
+    
+   // on single click the todo item => `style "text-decoration:line-through"` 
+
+    todo_item.addEventListener('click', function() {
+    todo_item.style.textDecoration = 'line-through';
+     });
+        
+// on double click the todo item => container remove child todo item
+
+    todo_item.addEventListener('dblclick', function() {
+    todo_container.removeChild(todo_item);
+    });
+
+} );
+</script>
+</body>
+</html>
