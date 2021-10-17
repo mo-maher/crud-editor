@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="datetime"></div>
+
+    <label for="index-no">Index No.</label><br />
+    <input type="number" name="index-no" id="index-no" size="5" /><br />
+
+    <label for="title">title</label> <br />
+    <input type="text" id="title-field" placeholder="add title here" /><br /><br />
+
+    <textarea name="post-body" id="subject-field" cols="30" rows="10"
+        placeholder="add subject here"></textarea><br /><br />
+    <button id="submit-btn">Submit</button>
+    <button id="read-btn">Read</button>
+    <button id="update-btn">Update</button>
+    <button id="delete-btn">Delete</button>
+
+    <script src="/js/firebase/firebase-app.js"></script>
+    <script src="/js/firebase/firebase-database.js"></script>
+    <script src="/js/firebase/firebase-auth.js"></script>
+    <script src="/js/firebase/firebase.js"></script>
+    <script src="/js/admin.js"></script>
+</body>
+
+</html>

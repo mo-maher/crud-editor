@@ -1,5 +1,3 @@
-"use strict";
-
 /**
  * 1. add Aliases to HTML elements
  * 2. create new elements (will be triggered later by "click" event)
@@ -13,12 +11,13 @@
 /**----------------------
  * Alias my page elements
  ------------------------*/
+"use strict";
+
 var todoInput = document.getElementById("todoInput");
 var todoSubmit = document.getElementById("todoSubmit");
 var todoList = document.getElementById("todoList");
 
 var newTodoList = function newTodoList() {
-  // create element need just element name not html !
   var todoItem = document.createElement("li");
   var todoItemSpan = document.createElement("span");
   var todoRemove = document.createElement("button");
@@ -87,28 +86,28 @@ var newTodoList = function newTodoList() {
   });
   /*-------------------------
   making elements draggable
-  ----------------------------*/
+    const draggable = document.getElementById(todoItem.id);
+      draggable.addEventListener("dragstart", e => {
+      draggable.classList.add("dragging");
+      console.log("drag starts");
+    });
+  
+    draggable.addEventListener("dragend", e => {
+      draggable.classList.remove("dragging");
+      console.log("dragging removed");
+      });
+      todoList.addEventListener("dragover", e => {
+      e.preventDefault;
+      const draggable = document.querySelector('.dragging');
+      todoList.appendChild(draggable)
+    });
+    ----------------------------*/
 
-  var draggable = document.getElementById(todoItem.id);
-  draggable.addEventListener("dragstart", function (e) {
-    draggable.classList.add("dragging");
-    console.log("drag starts");
-  });
-  draggable.addEventListener("dragend", function (e) {
-    draggable.classList.remove("dragging");
-    console.log("dragging removed");
-  });
-  todoList.addEventListener("dragover", function (e) {
-    e.preventDefault;
-    var draggable = document.querySelector('.dragging');
-    todoList.appendChild(draggable);
-  });
   /*------------------------------------
    save to local storage Works partly !!!
    -------------------------------------*/
-
-  localStorage.setItem("ls" + todoItemSpan.id, todoItemSpan.innerHTML);
-  document.getElementById(todoItemSpan.id).innerHTML = localStorage.getItem("ls" + todoItemSpan.id);
+  //localStorage.setItem(todoItemSpan.id, todoItemSpan.innerHTML);
+  //document.getElementById(todoItemSpan.id).innerHTML = localStorage.getItem(todoItemSpan.id);
 };
 
 todoSubmit.addEventListener("click", newTodoList);
